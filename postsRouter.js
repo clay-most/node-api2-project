@@ -121,7 +121,7 @@ router.get("/:id/comments", (req, res) => {
 
 // Delete post by ID
 router.delete("/:id", (req, res) => {
-  const id = req.params.id;
+  const {id} = req.params;
   db.remove(id)
     .then(post => {
       if (post) {
