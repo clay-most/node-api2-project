@@ -98,10 +98,10 @@ router.get("/:id", (req, res) => {
 //get comments by post id
 router.get("/:id/comments", (req, res) => {
   const id = req.params.id;
-  db.findCommentById(id)
+  db.findPostComments(id)
     .then(comments => {
-      if (comments.length !== 0) {
-        res.status(200).json(post);
+      if (comments) {
+        res.status(200).json(comments);
       } else {
         res
           .status(404)
